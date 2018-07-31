@@ -1,0 +1,3 @@
+<apex:page action="{!redirectToAnotherVisualforcePage}" extensions="PM_Project_EditRedirect_Controller" standardController="Project__c">
+	<apex:pageMessages ></apex:pageMessages>
+</apex:page>

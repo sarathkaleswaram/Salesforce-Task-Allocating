@@ -1,0 +1,29 @@
+<apex:page showHeader="true" sidebar="true" tabStyle="My_Task__tab" standardController="Job__c" extensions="PM_MyTaskEdit_Controller" title="MyTask">
+	<apex:form>
+		<apex:pageBlock title="My Task">
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton value="Save" action="{!customSave}"/>
+				<apex:commandButton value="Cancel" action="{!cancel}"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection>
+				<apex:outputField value="{!Job__c.MasterTest__c}" />
+				<apex:outputField value="{!project.OffshoreProjectManager__c}" />
+				<apex:outputField value="{!project.Team_Lead__c}" /> <br />
+				<apex:outputField value="{!Job__c.Job_ID__c}" />
+				<apex:outputField value="{!Job__c.Name}" />
+				<apex:outputField value="{!Job__c.Assigned_Date__c}" />
+				<apex:outputField value="{!Job__c.Expected_Delivery__c}" />
+				<apex:outputField value="{!Job__c.Job_Stage__c}" />
+				<apex:inputField value="{!Job__c.Job_Status__c}" />
+				<apex:inputText value="{!footageValue}" label="Footage" rendered="{!project.Footage__c}"/>
+				<apex:inputText value="{!hoursValue}" label="Hours" rendered="{!project.Hours__c}"/>
+				<apex:inputText value="{!jobsValue}" label="Jobs" rendered="{!project.Jobs__c}"/>
+				<apex:inputText value="{!milesValue}" label="Miles" rendered="{!project.Miles__c}"/>
+				<apex:inputText value="{!nodesValue}" label="Nodes" rendered="{!project.Nodes__c}"/>
+				<apex:inputText value="{!unitsValue}" label="Units" rendered="{!project.Units__c}"/> 
+				<br /> 
+				<apex:inputField value="{!Job__c.Remarks__c}" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

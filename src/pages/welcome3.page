@@ -1,0 +1,22 @@
+<apex:page standardController="Account" sidebar="false" extensions="RedirectApex">
+<script>
+alert{"hii"};
+</script>
+    <apex:form >
+        <apex:pageBlock title="block A">
+            <apex:pageBlocksection title="section A" columns="3">
+                <apex:inputField value="{!Account.Name}"/>  
+                <apex:inputField value="{!Account.Type}" />
+                <apex:inputField value="{!Account.Industry}" taborderhint="5"/>
+                <apex:inputField value="{!Account.Rating}" taborderhint="4"/>
+                <apex:outputField value="{!Account.phone}"/>
+                <apex:commandButton value="Detail Page" action="{!redirect}"/>
+               
+            </apex:pageBlocksection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="save"/>
+
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

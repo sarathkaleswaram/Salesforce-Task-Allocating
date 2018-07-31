@@ -1,0 +1,17 @@
+<apex:page standardController="Salesforce__c"  extensions="CustomObjectApex">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Salesforce__c.Branch__c}"/>
+                <apex:inputField value="{!Salesforce__c.Phone__c}"/>
+                <apex:inputField value="{!Salesforce__c.Name}" required="true"/>
+                <apex:inputField value="{!Salesforce__c.Date__c}"/>
+                <apex:inputfield value="{!Salesforce__c.Account__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!methodsave}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

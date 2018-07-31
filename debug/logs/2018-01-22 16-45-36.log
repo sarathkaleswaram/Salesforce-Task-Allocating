@@ -1,0 +1,51 @@
+41.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WAVE,INFO;WORKFLOW,INFO
+Execute Anonymous: List<ProjectJobAssociation__c> p = [select Id from ProjectJobAssociation__c];
+Execute Anonymous: Delete p;
+03:15:45.1 (1033271)|USER_INFO|[EXTERNAL]|0057F000000Tiz6|ksb994@salesforce.com|Pacific Standard Time|GMT-08:00
+03:15:45.1 (1051502)|EXECUTION_STARTED
+03:15:45.1 (1054927)|CODE_UNIT_STARTED|[EXTERNAL]|execute_anonymous_apex
+03:15:45.1 (1281769)|VARIABLE_SCOPE_BEGIN|[1]|p|List<ProjectJobAssociation__c>|true|false
+03:15:45.1 (1390547)|HEAP_ALLOCATE|[72]|Bytes:3
+03:15:45.1 (1424160)|HEAP_ALLOCATE|[77]|Bytes:152
+03:15:45.1 (1439740)|HEAP_ALLOCATE|[342]|Bytes:408
+03:15:45.1 (1455457)|HEAP_ALLOCATE|[355]|Bytes:408
+03:15:45.1 (1469830)|HEAP_ALLOCATE|[467]|Bytes:48
+03:15:45.1 (1495356)|HEAP_ALLOCATE|[139]|Bytes:6
+03:15:45.1 (1511377)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:3
+03:15:45.1 (1591256)|STATEMENT_EXECUTE|[1]
+03:15:45.1 (1593978)|STATEMENT_EXECUTE|[1]
+03:15:45.1 (1596459)|HEAP_ALLOCATE|[1]|Bytes:39
+03:15:45.1 (1614779)|HEAP_ALLOCATE|[1]|Bytes:4
+03:15:45.1 (1648984)|HEAP_ALLOCATE|[50]|Bytes:5
+03:15:45.1 (1669162)|HEAP_ALLOCATE|[56]|Bytes:5
+03:15:45.1 (1676207)|HEAP_ALLOCATE|[64]|Bytes:7
+03:15:45.1 (1809769)|SOQL_EXECUTE_BEGIN|[1]|Aggregations:0|SELECT Id FROM ProjectJobAssociation__c
+03:15:45.1 (19650399)|SOQL_EXECUTE_END|[1]|Rows:8
+03:15:45.1 (19678693)|HEAP_ALLOCATE|[1]|Bytes:36
+03:15:45.1 (19702195)|HEAP_ALLOCATE|[1]|Bytes:232
+03:15:45.1 (19771163)|HEAP_ALLOCATE|[1]|Bytes:36
+03:15:45.1 (19816440)|VARIABLE_ASSIGNMENT|[1]|p|"List of size 8 too large to display"|0x689dd0ad
+03:15:45.1 (19823686)|STATEMENT_EXECUTE|[2]
+03:15:45.1 (19872913)|DML_BEGIN|[2]|Op:Delete|Type:ProjectJobAssociation__c|Rows:8
+03:15:45.1 (19896269)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:36
+03:15:45.1 (199128457)|DML_END|[2]
+03:15:45.1 (199196698)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:36
+03:15:45.203 (203815384)|CUMULATIVE_LIMIT_USAGE
+03:15:45.203 (203815384)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 8 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 8 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+03:15:45.203 (203815384)|CUMULATIVE_LIMIT_USAGE_END
+
+03:15:45.1 (203868312)|CODE_UNIT_FINISHED|execute_anonymous_apex
+03:15:45.1 (204745177)|EXECUTION_FINISHED

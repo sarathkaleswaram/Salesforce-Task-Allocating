@@ -1,0 +1,38 @@
+<apex:page controller="apexblock">
+    <apex:form >
+        <apex:outputPanel id="refresh">
+            <apex:pageBlock rendered="{!showA}" title="Block A">
+                <apex:pageblocksection title="Section A">
+                    This is Block A
+                </apex:pageblocksection>
+            </apex:pageBlock>
+            
+            <apex:pageblock title="Block B" rendered="{!showB}">
+                <apex:pageBlockSection title="Section B">
+                    This is Block B
+                </apex:pageBlockSection>
+            </apex:pageblock>
+            
+            <apex:pageBlock >
+                <apex:commandbutton value="{!labelA}" action="{!methodA}" rerender="refresh"/>
+                <apex:commandbutton value="{!labelB}" action="{!methodB}" rerender="refresh"/>
+                <apex:commandbutton value="{!labelAB}" action="{!methodAB}" rerender="refresh"/>
+            </apex:pageBlock>
+            
+            <apex:outputLabel value="{!check}"></apex:outputLabel>
+        </apex:outputPanel>
+        
+        <apex:pageblock >
+        	<apex:commandButton value="{!showAccountName}" action="{!showMethod}" rerender="accountId"/>
+        </apex:pageblock>
+        
+        <apex:outputPanel id="accountId">
+            <apex:pageblock rendered="{!showAccount}">
+                <apex:pageBlockTable value="{!accList}" var="acc">
+                    <apex:column value="{!acc.Name}"/>
+                    <apex:column value="{!acc.Rating}"/>
+                </apex:pageBlockTable>
+            </apex:pageblock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

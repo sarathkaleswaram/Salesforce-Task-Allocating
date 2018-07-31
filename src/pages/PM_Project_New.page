@@ -1,0 +1,57 @@
+<apex:page showHeader="true" sidebar="true" standardController="Project__c" extensions="Project_PM_Controller">
+<apex:sectionHeader title="Project Edit" subtitle="New Project" />  
+    <apex:form >
+        <apex:pageBlock title="Project Edit" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!customSave}"/>
+                <apex:commandButton value="Save & New" action="{!customSaveAndNew}"/>
+                <apex:commandButton value="Cancel" action="/apex/PM_Project_Tab"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageMessages />
+
+            <apex:pageBlockSection title="Information">
+                    <apex:inputField value="{!Project__c.Client__c}" required="true" />
+                    <apex:inputField value="{!Project__c.End_Customer__c}" />
+                    <apex:inputField value="{!Project__c.Operation_Region__c}" />
+                    <apex:inputField value="{!Project__c.Work_Region__c}" />
+                    <apex:inputField value="{!Project__c.Client_Project_Manager__c}" />
+                    <apex:inputField value="{!Project__c.Project_code__c}" />
+                    <apex:inputField value="{!Project__c.Company_project_code__c}" />
+                    <apex:inputField value="{!Project__c.Name}" required="true"/>
+                    <apex:inputField value="{!Project__c.Project_Scope__c}" />
+                    <apex:inputField value="{!Project__c.Cost_Centre__c}" />
+                    <apex:inputField value="{!Project__c.OffshoreProjectManager__c}" />
+                    <apex:inputField value="{!Project__c.Team_Lead__c}" /> 
+                    <apex:inputField value="{!Project__c.Project_Start_Date__c}" /> 
+                    <apex:inputField value="{!Project__c.Project_End_Date__c}" /> 
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Team Members" >
+                    <c:MultiselectPicklist leftLabel="Available Users"
+                                leftOption="{!usersList}"
+                                rightLabel="Selected Users"
+                                rightOption="{!selectedUsers}"
+                                size="6"
+                                width="150px"/>
+             <apex:image value="{!$Resource.Tiger}" width="150" height="100"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Unit of Measurement" > 
+                <apex:inputField value="{!Project__c.Units__c}" />
+                <apex:inputField value="{!Project__c.Nodes__c}" />
+                <apex:inputField value="{!Project__c.Footage__c}" />
+                <apex:inputField value="{!Project__c.Miles__c}" />
+                <apex:inputField value="{!Project__c.Jobs__c}" />
+                <apex:inputField value="{!Project__c.Hours__c}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Total Count Should be 100" >
+                    <apex:inputField value="{!Project__c.Production__c}" />
+                    <apex:inputField value="{!Project__c.QC__c}" />
+                    <apex:inputField value="{!Project__c.QA__c}" />
+                    <apex:inputField value="{!Project__c.Delivery__c}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

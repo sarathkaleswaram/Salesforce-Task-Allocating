@@ -1,0 +1,32 @@
+<apex:page controller="parentchild" tabStyle="Contact">
+    <apex:form >
+        <apex:pageBlock >
+            Contact Last Name : <apex:inputText value="{!contactLastName}"/>
+            Contact Phone : <apex:inputText value="{!contactPhone}"/>
+            Account Name : <apex:inputField value="{!Contact.AccountId}"/>
+            <apex:commandButton value="Insert" action="{!insertMethod}"/>
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:inputText value="{!var}"/>
+            <apex:commandButton value="reset" action="{!resetMethod}"/><br/>
+            <apex:inputText value="{!email}"/>
+            <apex:commandButton value="Send Email To" action="{!sendEmail}"/>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Account to Contacts">
+            <apex:pageBlockTable value="{!acclist}" var="list">
+                <apex:column value="{!list.id}"/>
+                <apex:column value="{!list.name}"/>
+                <apex:column >
+                    <apex:pageBlockTable value="{!list.Contacts}" var="child">
+                        <apex:column value="{!child.id}"/>
+                        <apex:column value="{!child.lastname}"/>
+                        <apex:column value="{!child.Phone}"/>
+                        
+                    </apex:pageBlockTable>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

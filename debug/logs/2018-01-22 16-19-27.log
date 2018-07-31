@@ -1,0 +1,48 @@
+41.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WAVE,INFO;WORKFLOW,INFO
+Execute Anonymous: List<ProjectJobAssociation__c> p = [select Id from ProjectJobAssociation__c];
+Execute Anonymous: Delete p;
+02:49:36.1 (1081500)|USER_INFO|[EXTERNAL]|0057F000000Tiz6|ksb994@salesforce.com|Pacific Standard Time|GMT-08:00
+02:49:36.1 (1100987)|EXECUTION_STARTED
+02:49:36.1 (1104269)|CODE_UNIT_STARTED|[EXTERNAL]|execute_anonymous_apex
+02:49:36.1 (1262345)|VARIABLE_SCOPE_BEGIN|[1]|p|List<ProjectJobAssociation__c>|true|false
+02:49:36.1 (1349091)|HEAP_ALLOCATE|[72]|Bytes:3
+02:49:36.1 (1372879)|HEAP_ALLOCATE|[77]|Bytes:152
+02:49:36.1 (1385088)|HEAP_ALLOCATE|[342]|Bytes:408
+02:49:36.1 (1399846)|HEAP_ALLOCATE|[355]|Bytes:408
+02:49:36.1 (1414229)|HEAP_ALLOCATE|[467]|Bytes:48
+02:49:36.1 (1436124)|HEAP_ALLOCATE|[139]|Bytes:6
+02:49:36.1 (1451228)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:3
+02:49:36.1 (1533769)|STATEMENT_EXECUTE|[1]
+02:49:36.1 (1536258)|STATEMENT_EXECUTE|[1]
+02:49:36.1 (1538644)|HEAP_ALLOCATE|[1]|Bytes:39
+02:49:36.1 (1554615)|HEAP_ALLOCATE|[1]|Bytes:4
+02:49:36.1 (1589208)|HEAP_ALLOCATE|[50]|Bytes:5
+02:49:36.1 (1605223)|HEAP_ALLOCATE|[56]|Bytes:5
+02:49:36.1 (1612017)|HEAP_ALLOCATE|[64]|Bytes:7
+02:49:36.1 (1773487)|SOQL_EXECUTE_BEGIN|[1]|Aggregations:0|SELECT Id FROM ProjectJobAssociation__c
+02:49:36.1 (4141970)|SOQL_EXECUTE_END|[1]|Rows:0
+02:49:36.1 (4171185)|HEAP_ALLOCATE|[1]|Bytes:4
+02:49:36.1 (4181638)|HEAP_ALLOCATE|[1]|Bytes:0
+02:49:36.1 (4223515)|HEAP_ALLOCATE|[1]|Bytes:4
+02:49:36.1 (4263425)|VARIABLE_ASSIGNMENT|[1]|p|[]|0x63b93955
+02:49:36.1 (4270275)|STATEMENT_EXECUTE|[2]
+02:49:36.1 (4344069)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+02:49:36.4 (4371997)|CUMULATIVE_LIMIT_USAGE
+02:49:36.4 (4371997)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 0 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+02:49:36.4 (4371997)|CUMULATIVE_LIMIT_USAGE_END
+
+02:49:36.1 (4405066)|CODE_UNIT_FINISHED|execute_anonymous_apex
+02:49:36.1 (5299294)|EXECUTION_FINISHED

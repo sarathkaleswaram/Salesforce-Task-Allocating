@@ -1,0 +1,18 @@
+{
+    "projectName": "Project Matrix",
+    "username": "ksb994@salesforce.com",
+    "id": "236a4660-e430-11e7-a4ee-a9d5a816e60b",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://ap5.salesforce.com",
+    "workspace": "C:\\Users\\Sharath\\Documents",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource",
+        "Workflow"
+    ]
+}

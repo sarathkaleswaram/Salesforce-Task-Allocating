@@ -1,0 +1,55 @@
+<apex:page showHeader="true" sidebar="true" standardController="Project__c" extensions="PM_Project_Edit_Controller">
+	<apex:sectionHeader title="Project Edit" subtitle="{!project.name}" />
+	<apex:form >
+		<apex:pageBlock title="Project Edit" mode="edit">
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!customSave}"/>
+				<apex:commandButton value="Save & New" />
+				<apex:commandButton value="Cancel" action="/apex/PM_Project_Tab"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Information">
+				<apex:inputField value="{!project.Client__c}" required="true" />
+				<apex:inputField value="{!project.End_Customer__c}" />
+				<apex:inputField value="{!project.Operation_Region__c}" />
+				<apex:inputField value="{!project.Work_Region__c}" />
+				<apex:inputField value="{!project.Client_Project_Manager__c}" />
+				<apex:inputField value="{!project.Project_code__c}" />
+				<apex:inputField value="{!project.Company_project_code__c}" />
+				<apex:inputField value="{!project.Name}" required="true"/>
+				<apex:inputField value="{!project.Project_Scope__c}" />
+				<apex:inputField value="{!project.Cost_Centre__c}" />
+				<apex:inputField value="{!project.OffshoreProjectManager__c}" />
+				<apex:inputField value="{!project.Team_Lead__c}" /> 
+				<apex:inputField value="{!project.Project_Start_Date__c}" /> 
+				<apex:inputField value="{!project.Project_End_Date__c}" /> 
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="Team Members" >
+				  	<c:MultiselectPicklist leftLabel="Available Users"
+				                leftOption="{!usersList}"
+				                rightLabel="Selected Users"
+				                rightOption="{!selectedUsers}"
+				                size="6"
+				                width="150px"/>
+			 <apex:image value="{!$Resource.Tiger}" width="150" height="100"/>
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="Unit of Measurement" > 
+				<apex:inputField value="{!project.Units__c}" />
+				<apex:inputField value="{!project.Nodes__c}" />
+				<apex:inputField value="{!project.Footage__c}" />
+				<apex:inputField value="{!project.Miles__c}" />
+				<apex:inputField value="{!project.Jobs__c}" />
+				<apex:inputField value="{!project.Hours__c}" />
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="Total Count Should be 100" >
+					<apex:inputField value="{!project.Production__c}" />
+					<apex:inputField value="{!project.QC__c}" />
+					<apex:inputField value="{!project.QA__c}" />
+					<apex:inputField value="{!project.Delivery__c}" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+	<!--<apex:detail subject="{!project.Id}" relatedList="true" inlineEdit="true"/> -->
+</apex:page>

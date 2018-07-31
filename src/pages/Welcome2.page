@@ -1,0 +1,15 @@
+<apex:page showHeader="false">
+    <apex:pageBlock title="First Block">
+        <apex:pageBlock title="Inside block">
+            <apex:pageBlockSection title="Block Section">
+                <apex:pageBlockSection title="inside section">
+                    <input type="button" value="Submit"></input>
+                </apex:pageBlockSection>
+                    <h1>   
+                    hei
+                    </h1>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:pageBlock>
+    <apex:pageblock title="Second Block"> </apex:pageblock>
+</apex:page>

@@ -1,0 +1,9 @@
+<apex:page controller="Arrayapex">
+    <apex:form >
+    	<apex:pageBlock title="Array Example">
+        	<apex:pageBlockTable value="{!str}" var="array">
+            	<apex:column value="{!array}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

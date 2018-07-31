@@ -1,0 +1,103 @@
+<apex:page showHeader="true" sidebar="true" standardController="Job__c" extensions="PM_Job_New_Controller" title="Job Edit: New Job">
+	<apex:sectionHeader title="Job Edit" subtitle="New Job" />
+	<apex:form >
+		<apex:pageBlock title="Job Edit" mode="edit">
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!customSave}"/>
+				<apex:commandButton value="Save & New" action="{!test}"/>
+				<apex:commandButton value="Cancel" />
+			</apex:pageBlockButtons>
+			<apex:pageMessages />
+			<apex:pageBlockSection title="Information">
+				<apex:outputLabel value="Company Project Code : " style="padding-left: 60px; font-weight: bold;">
+					<apex:selectList value="{!cpCode}" multiselect="false" size="1" required="true">
+						<apex:selectOptions value="{!companyProjectCode}" />
+						<apex:actionSupport event="onchange" action="{!autoFill}" reRender="aFRefresh, resourceRefresh" status="status"/>
+					</apex:selectList>
+				</apex:outputLabel> 
+			</apex:pageBlockSection>
+			<apex:outputPanel id="aFRefresh">
+	          <apex:actionstatus id="status" startText="Loading..." startStyle="padding-left: 250px; padding-top: 250px; font-weight: bold;"> 
+	             <apex:facet name="stop"> 
+	               <apex:pageBlockSection > 
+	                 	<apex:outputField value="{!project.Client__c}"/> 
+	                	<apex:outputField value="{!project.Client_Project_Manager__c}" />
+						<apex:outputField value="{!project.Name}" />
+						<apex:outputField value="{!project.Project_code__c}" />
+						<apex:outputField value="{!project.OffshoreProjectManager__c}" />
+						<apex:outputField value="{!project.Team_Lead__c}" /> 
+						<apex:outputField value="{!project.Footage__c}" rendered="{!project.Footage__c}" />
+						<apex:outputField value="{!project.Hours__c}" rendered="{!project.Hours__c}" />
+						<apex:outputField value="{!project.Jobs__c}" rendered="{!project.Jobs__c}" />
+						<apex:outputField value="{!project.Miles__c}" rendered="{!project.Miles__c}" />
+						<apex:outputField value="{!project.Nodes__c}" rendered="{!project.Nodes__c}" />	
+						<apex:outputField value="{!project.Units__c}" rendered="{!project.Units__c}" />
+	              </apex:pageBlockSection> 
+	            </apex:facet> 
+	          </apex:actionstatus> 
+     		</apex:outputPanel> 
+
+			<apex:pageBlockSection title="Enter Job Details">
+				<apex:inputField value="{!Job__c.Job_ID__c}" />
+				<apex:inputField value="{!Job__c.Name}"/>
+				<apex:inputField value="{!Job__c.Estimated_Total_Job_Hours__c}" >
+					<apex:actionSupport event="onchange" action="{!estimHoursMethod}" reRender="estimRefresh" />
+				</apex:inputField>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection >
+				<apex:inputField value="{!Job__c.Job_Stage__c}" />
+				<apex:inputField value="{!Job__c.Job_Status__c}" /> 
+			</apex:pageBlockSection>
+			<apex:pageBlockSection id="resourceRefresh">
+				<apex:outputText label="Production Resource" >
+					<apex:selectList size="1" value="{!production_resource}">
+						<apex:selectOptions value="{!usersInProject}"/>
+					</apex:selectList>
+				</apex:outputText>
+				<apex:outputText label="QC Resource" >
+					<apex:selectList size="1" value="{!qc_resource}">
+						<apex:selectOptions value="{!usersInProject}"/>
+					</apex:selectList>
+				</apex:outputText>
+				<apex:outputText label="QA Resource" >
+					<apex:selectList size="1" value="{!qa_resource}">
+						<apex:selectOptions value="{!usersInProject}"/>
+					</apex:selectList>
+				</apex:outputText>
+				<apex:outputText label="Delivery Resource" >
+					<apex:selectList size="1" value="{!delivery_resource}">
+						<apex:selectOptions value="{!usersInProject}"/>
+					</apex:selectList>
+				</apex:outputText>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection id="estimRefresh">
+				<apex:outputText label="Production Hours Estimated" value="{!Job__c.Production_Hours_Estimated__c}" style="font-weight: bold;"/>
+				<apex:outputText label="QC Hours Estimated" value="{!Job__c.QC_Hours_Estimated__c}" style="font-weight: bold;"/>
+				<apex:outputText label="QA Hours Estimated" value="{!Job__c.QA_Hours_Estimated__c}" style="font-weight: bold;"/>
+				<apex:outputText label="Delivery Hours Estimated" value="{!Job__c.Delivery_Hours_Estimated__c}" style="font-weight: bold;"/> 
+			</apex:pageBlockSection>
+			<apex:pageBlockSection >
+				<apex:inputField value="{!Job__c.Recieved_Date__c}" />
+				<apex:inputField value="{!Job__c.Assigned_Date__c}" />
+				<apex:inputField value="{!Job__c.Expected_Delivery__c}" /> 
+			</apex:pageBlockSection> <br />
+			<apex:outputLabel value="Job Criticality" style="padding-left: 170px; font-weight: bold;">
+				<apex:selectRadio value="{!jobCriticality}" style="padding-left: 150px; font-weight: normal;">
+					<apex:selectOption itemLabel="High" itemValue="High" />
+					<apex:selectOption itemLabel="Normal" itemValue="Normal" />
+					<apex:selectOption itemLabel="Low" itemValue="Low" />
+				</apex:selectRadio>
+			</apex:outputLabel>
+			<apex:pageBlockSection >
+				<apex:inputField value="{!Job__c.Remarks__c}" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+	<!-- <apex:form>
+        <apex:outputText value="Watch this counter: {!count}" id="counter"/>
+        <apex:actionStatus startText=" (incrementing...)"
+            stopText=" (done)" id="counterStatus"/>
+        <apex:actionPoller action="{!incrementCounter}" rerender="counter"
+            status="counterStatus" interval="15"/>
+    </apex:form> -->
+</apex:page>

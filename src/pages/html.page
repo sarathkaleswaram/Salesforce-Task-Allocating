@@ -1,0 +1,8 @@
+<apex:page standardcontroller="Salesforce__c" showHeader="false" >
+<style>
+    body {
+        background-image: url("http://www.clker.com/cliparts/j/J/c/s/b/h/scroll-watermark-md.png");
+        background-repeat:repeat;
+    }
+</style>
+</apex:page>

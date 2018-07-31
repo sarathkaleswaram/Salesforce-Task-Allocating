@@ -1,0 +1,46 @@
+<apex:page showHeader="true" sidebar="true" controller="PM_My_Task_Controller">
+
+    <apex:form>        
+		<br /> Search Here : 
+		<apex:inputText value="{!search}" html-placeholder="Job ID"/> 
+		<apex:commandButton value="Search" /> <br />
+	    <apex:pageBlock title="My Task">
+	    	<apex:pageBlockButtons>
+	    		<apex:commandButton value="First" action="{!first}" disabled="{!prv}"/>
+	    		<apex:commandButton value="Previous" action="{!previous}" disabled="{!prv}"/>
+	    		<apex:commandButton value="Next" action="{!next}" disabled="{!nxt}"/>
+	    		<apex:commandButton value="Last" action="{!last}" disabled="{!nxt}"/>
+	    	</apex:pageBlockButtons>
+	    	<apex:outputText style="font-weight: bold;" rendered="{!ifNull}" value="No Task Allocated for you" /> <br />
+	    	<apex:outputText style="font-weight: bold;" value="Total Jobs Count : {!total}" />
+	    	<apex:variable var="rowNum" value="{!0}"/>
+	        <apex:pageBlockTable value="{!jobList}" var="job">
+	        	<apex:column headerValue="No">
+                     <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                     {!rowNum}
+                </apex:column>
+	        	<apex:column>
+	        		<apex:facet name="header">Edit </apex:facet>
+	        		<apex:outputLink value="/apex/PM_MyTask_EditPage?id={!job.Id}" >Edit </apex:outputLink>
+	        	</apex:column>
+	        	<apex:column value="{!job.MasterTest__c}" />
+	        	<apex:column value="{!job.Name}" />
+	        	<apex:column value="{!job.Job_ID__c}" />
+	        	<apex:column value="{!job.Job_Stage__c}" />
+	        	<apex:column value="{!job.Job_Status__c}" />
+	        	<apex:column value="{!job.Assigned_Date__c}" />
+	        </apex:pageBlockTable>
+	        <apex:outputPanel rendered="{!NOT(ifNull)}">
+		        Display records per page : 
+		        <apex:selectList value="{!selectSize}" size="1" >
+		            <apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+		            <apex:selectOption itemLabel="50" itemValue="50"></apex:selectOption>
+		            <apex:selectOption itemLabel="100" itemValue="100"></apex:selectOption>	            
+		            <apex:selectOption itemLabel="500" itemValue="500"></apex:selectOption>
+		            <apex:selectOption itemLabel="1000" itemValue="1000"></apex:selectOption>
+		            <apex:actionSupport event="onchange" action="{!updatePage}"/>
+	            </apex:selectList>
+	        </apex:outputPanel>
+	    </apex:pageBlock>
+	</apex:form>
+</apex:page>
